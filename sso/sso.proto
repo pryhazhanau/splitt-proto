@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "splitt.sso.v1;ssov1";
+
+service Auth {
+    rpc Register (RegisterRequest) returns (RegisterResponse);
+    rpc OTP (OTPRequest) returns (OTPResponse);
+    rpc VerifyOTP (VerifyOTPRequest) returns (VerifyOTPResponse);
+}
+
+message RegisterRequest {
+    string email = 1;
+    string username = 2;
+    string fullName = 3;
+}
+
+message RegisterResponse {
+    string user_id = 1;
+}
+
+message OTPRequest {
+    string phone = 1;
+}
+
+message OTPResponse {
+}
+
+message VerifyOTPRequest {
+    string code = 1;
+}
+
+message VerifyOTPResponse {
+    
+}
